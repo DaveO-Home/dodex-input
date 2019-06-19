@@ -120,7 +120,9 @@ Include with dodex page.
 
 ```javascript
         /*
-            The window scoped "dodexContent" is required to load content at initialization. This allows content without using a module.(dodex.setContentFile). The additional card content as well as content loaded from the Front-End Input module, use plain objects.
+            The window scoped "dodexContent" is required to load content at initialization. This
+            allows content without using a module.(dodex.setContentFile). The additional card
+            content as well as content loaded from the Front-End Input module, use plain objects.
         */
         dodexContent = {
           cards: {
@@ -179,7 +181,7 @@ __Note;__ Firefox works best by only clicking the tabs.
 
 ### Prerequisites
 
-Browser must support the "indexDB" storage feature. To clear content from the "indexDB", execute from your browser's dev-tools console; `indexDB.deleteDatabase("dodex")`.
+Browser must support the "indexedDB" storage feature. To clear content from the "indexedDB", execute from your browser's dev-tools console; `indexedDB.deleteDatabase("dodex")`.
 
 ### Installing
 
