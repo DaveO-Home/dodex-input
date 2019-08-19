@@ -15,9 +15,11 @@ Include with dodex page.
       </div>
       <script src="(location)/dodex.min.js" type="text/javascript"></script>
       <script src="(location)/dodex-input.min.js" type="text/javascript"></script>
+      <script src="(location)/dodex-mess.min.js" type="text/javascript"></script>
       <script>
             doDex.init({
-               input: doDexInput
+               input: doDexInput, // "private: none" is default so no popup input form
+               mess: doDexMess    // defaults to "server: localhost:3087" for websockets
             });
       </script>
     </body>
@@ -29,6 +31,7 @@ Include with dodex page.
     <script>
          var dodex = window.doDex; // global variable
          var input = window.doDexInput; // global variable
+         var mess = window.doDexMess; // global variable
 
          /* Card content can be customized - returns an object
            This content is used for cards A-Z and static card 27
@@ -43,7 +46,9 @@ Include with dodex page.
             left: "50%",
             input: input,        // required if using frontend content load
             private: "partial",  // frontend load of private content, "none", "full", "partial"(only cards 28-52) - default none
-            replace: true        // append to or replace default content - default false(append only)
+            replace: true,       // append to or replace default content - default false(append only)
+            mess: mess,          // requireed if using messaging client.
+            server: "localhost:3087"  // default demo server - see node_modules/dodex-mess/server
             })
 
          // Add up to 24 additional cards. Card # must start at 28.
@@ -118,13 +123,11 @@ Include with dodex page.
 
       Use the following as a javascript template. You only need to include cards with content. See node_modules/dodex/data for examples.
 
+   __Note;__ The window scoped "dodexContent" is required to load content at initialization. This allows content without using a module.(dodex.setContentFile). The additional card content as well as content loaded from the front-end Input module, use plain objects.
+
 ```javascript
-        /*
-            The window scoped "dodexContent" is required to load content at initialization. This
-            allows content without using a module.(dodex.setContentFile). The additional card
-            content as well as content loaded from the Front-End Input module, use plain objects.
-        */
-        dodexContent = {
+
+      dodexContent = {
           cards: {
              card1: {
                tab: "A",
@@ -190,7 +193,7 @@ Browser must support the "indexedDB" storage feature. To clear content from the 
 1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
 __Note;__ Content can also be loaded from a `JSON` file.
 
-Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub).
+Here's an example of dodex loaded in a `bootstrap` environment (view on GitHub <https://github.com/DaveO-Home/dodex>).
 
 ![dodex](./images/dodex.png?raw=true)
 

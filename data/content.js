@@ -88,7 +88,7 @@
 				content: ""
 			},
 			back: {
-				content: "<p>Hi - from <h2>Dodex<h2></p>"
+				content: "<div style='position:relative;overflow:auto;'><span style=\"padding-left: 20px;\">Hi - from <h2 style=\"display:inline;\">Dodex<h2></span></div>"
 			}
 		}
 	}

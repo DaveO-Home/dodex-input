@@ -7,7 +7,7 @@ return {
 				content: "<h3>Hi There</h3>"
 			},
 			back: {
-				content: "Whats up? "
+				content: "Whats up?"
 			}
 		},
 		card2: {
@@ -104,6 +104,15 @@ return {
 					<svg height="18" width="17" style="font-family: 'Open Sans', sans-serif;">
 					<text x="3" y="18" fill="#059">O</text><text x="0" y="15" fill="#059">D</text></svg> doDex</h1>
 					`
+			}
+		},
+		card27: {
+			tab: "",
+			front: {
+				content: ""
+			},
+			back: {
+				content: "<div style='position:relative;overflow:auto;'><span style=\"padding-left: 20px;\">Hi - from <h2 style=\"display:inline;\">Dodex<h2></span></div>"
 			}
 		}
 	}
