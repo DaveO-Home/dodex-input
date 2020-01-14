@@ -9,10 +9,26 @@ Include with dodex page.
 ```html
    <!-- Dodex css file includes css for the 'input' module -->
     <link rel="stylesheet" href="(location)/dodex.min.css">
+    <!-- JSONEditor css for editing private content in JSON files -->
+    <link href="(location)/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+  <style>
+   /* Size and location of JSONEditor window */
+   .editor {
+      width: 80%; height: 400px; position: fixed; bottom: 0; left: 0;
+    }
+  </style>
+</head>
+
+
     <body>
       <div class="dodex--open">
         <img src="(location)/dodex/images/dodex_g.ico">
       </div>
+      <!-- container for the frontend JSON editor - will be positioned based on .editor class -->
+      <div id="jsoneditor" class="editor"></div>
+      <!-- Note; dodex-input will handle the implementation - see the input popup -->
+      <script src="(location)/jsoneditor/dist/jsoneditor.min.js"></script>
+
       <script src="(location)/dodex.min.js" type="text/javascript"></script>
       <script src="(location)/dodex-input.min.js" type="text/javascript"></script>
       <script src="(location)/dodex-mess.min.js" type="text/javascript"></script>
@@ -179,6 +195,16 @@ Include with dodex page.
 1. Enter a dial with mouse and with mouse down slowly move up or down to flip cards.
 1. Double-Click on bottom static card or dials to popup the front-end load file form.
 1. Double-Click again to close or click close button.
+1. As of Dodex-Input 1.3.0 the following are supported:
+   1. JSON files can now use arrays as content to make JSON more readable.
+      * For example, you can code;
+         1. ```"back": {"content": ["back", "of", "card"]}, "front": {"content": ["front", "of", "card"]}```
+   2. JSON files can be edited and saved from the frontend dodex-input dialog form.
+      * This feature is optional, to implement you must add the following to the web page;
+         1. The jsoneditor css style link ```<link href="(location)/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">```. see; <https://github.com/josdejong/jsoneditor>
+         2. The css class ```<style>.editor { width: 80%; height: 400px; position: fixed; bottom: 0; left: 0; }</style>``` and this can be customized.
+         3. The jsoneditor javascript file; ```<script src="(location)/jsoneditor/dist/jsoneditor.min.js"></script>```.
+   3. Personal Data can now be removed from the frontend dodex-input dialog form. An edited or new content file can then be loaded.
 
 __Note;__ Firefox works best by only clicking the tabs.
 
@@ -190,6 +216,7 @@ Browser must support the "indexedDB" storage feature. To clear content from the 
 
 1. `npm install dodex --save` or download from <https://github.com/DaveO-Home/dodex>.
 1. `npm install dodex-input --save` or download from <https://github.com/DaveO-Home/dodex-input>.
+1. `npm install jsoneditor --save` if using the frontend json editor.
 1. Optionally copy `node_modules/dodex/` javascript, css and images to appropriate directories; If using a bundler like browserify, you may only need to copy the content.js(or create your own) and images.  
 __Note;__ Content can also be loaded from a `JSON` file.
 
