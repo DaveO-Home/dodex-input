@@ -237,7 +237,7 @@ See getting started.
 
 * [SASS](https://sass-lang.com/) - css build
 * [Javascript](https://www.javascript.com//) - language
-* [Parcel](https://parceljs.org/) - bundler
+* [Rollup](https://rollupjs.org/) - bundler
 
 ## Authors
 
